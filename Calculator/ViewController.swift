@@ -11,7 +11,16 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var display: UILabel!
-   
+    var displayValue: Double {
+        get{
+            return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
+        }
+        set{
+            display.text = "\(newValue)"
+            userTyping = false
+        }
+    }
+    
     var userTyping = false
     var operandStack = Array<Double>()
     
@@ -25,12 +34,37 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func enter(sender: UIButton) {
-        
+    @IBAction func enter() {
+        userTyping = false
+        operandStack.append(displayValue)
+        println("operandStack = \(operandStack)")
     }
     
+    @IBAction func operate(sender: UIButton) {
+        let operation = sender.currentTitle!
+        switch operation {
+        case "×": performOperation {$0 * $1}
+        case "÷": performOperation {$0 / $1}
+        case "+": performOperation {$0 + $1}
+        case "−": performOperation {$0 - $1}
+        case "√": performOperation {sqrt($0)}
+        default: break
+        }
+    }
     
+    private func performOperation(operation: (Double, Double) -> Double) {
+        if operandStack.count >= 2 {
+            displayValue = operation(operandStack.removeLast(), operandStack.removeLast())
+            enter()
+        }
+    }
     
+    private func performOperation(operation: Double -> Double) {
+        if operandStack.count >= 1 {
+            displayValue = operation(operandStack.removeLast())
+            enter()
+        }
+    }
 
 }
 
