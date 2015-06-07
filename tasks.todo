@@ -1,7 +1,7 @@
 Required Tasks:
 ✔ Get the Calculator working as demonstrated in lectures 1 and 2. The Autolayout portion at the end of the lecture is extra credit, but give it a try because getting good at autolayout requires experience. If you do not do autolayout, be sure to position everything so that it is visible on all iPhones (i.e. the upper left corner of the scene). @done(2015-06-07 15:24)
 
-☐ Your calculator already works with floating point numbers (e.g. if you touch 3 ↲ 4 ÷, it will properly show 0.75), however, there is no way for the user to enter a floating point number directly. Fix this by allowing legal floating point numbers to be entered (e.g. “192.168.0.1” is not a legal floating point number!). You will have to add a new “.” button to your Calculator. Don’t worry too much about precision or significant digits in this assignment.
+✔ Your calculator already works with floating point numbers (e.g. if you touch 3 ↲ 4 ÷, it will properly show 0.75), however, there is no way for the user to enter a floating point number directly. Fix this by allowing legal floating point numbers to be entered (e.g. “192.168.0.1” is not a legal floating point number!). You will have to add a new “.” button to your Calculator. Don’t worry too much about precision or significant digits in this assignment. @done(2015-06-07 15:49)
 
 ☐ Add the following operations to your Calculator -
     ☐ a. sin: calculates the sine of the top operand on the stack
