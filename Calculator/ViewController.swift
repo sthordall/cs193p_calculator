@@ -34,6 +34,21 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func appendPoint(sender: UIButton) {
+        let point = sender.currentTitle!
+
+        if display.text!.rangeOfString(point) == nil {
+            if userTyping {
+                display.text = display.text! + point
+            } else {
+                display.text = "0" + point
+                userTyping = true
+            }
+        }
+    }
+    
+    
     @IBAction func enter() {
         userTyping = false
         operandStack.append(displayValue)
