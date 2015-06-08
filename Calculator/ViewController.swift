@@ -10,7 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    //  Outlets
+    @IBOutlet weak var history: UILabel!
     @IBOutlet weak var display: UILabel!
+    
+    //  Variables
+    var userTyping = false
+    var operandStack = Array<Double>()
     var displayValue: Double {
         get{
             return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
@@ -21,9 +27,7 @@ class ViewController: UIViewController {
         }
     }
     
-    var userTyping = false
-    var operandStack = Array<Double>()
-    
+    //  Actions
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
         if userTyping {
@@ -33,7 +37,6 @@ class ViewController: UIViewController {
             userTyping = true
         }
     }
-    
     
     @IBAction func appendPoint(sender: UIButton) {
         let point = sender.currentTitle!
@@ -48,12 +51,23 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func appendPi() {
+        let piValue = M_PI
+        if userTyping {
+            enter()
+        }
+        display.text = "\(piValue)"
+        enter()
+    }
+    
     
     @IBAction func enter() {
         userTyping = false
         operandStack.append(displayValue)
         println("operandStack = \(operandStack)")
     }
+    
+    
     
     @IBAction func operate(sender: UIButton) {
         let operation = sender.currentTitle!
@@ -63,10 +77,13 @@ class ViewController: UIViewController {
         case "+": performOperation {$0 + $1}
         case "−": performOperation {$0 - $1}
         case "√": performOperation {sqrt($0)}
+        case "cos": performOperation {cos($0)}
+        case "sin": performOperation {sin($0)}
         default: break
         }
     }
     
+    //  Helpers
     private func performOperation(operation: (Double, Double) -> Double) {
         if operandStack.count >= 2 {
             displayValue = operation(operandStack.removeLast(), operandStack.removeLast())
