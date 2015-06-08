@@ -104,16 +104,20 @@ class ViewController: UIViewController {
     private func performOperation(operation: (Double, Double) -> Double) {
         if operandStack.count >= 2 {
             displayValue = operation(operandStack.removeLast(), operandStack.removeLast())
-            enter()
+            showResult()
         }
     }
     
     private func performOperation(operation: Double -> Double) {
         if operandStack.count >= 1 {
             displayValue = operation(operandStack.removeLast())
-            enter()
+            showResult()
         }
     }
-
+    
+    private func showResult() {
+        enter()
+        display.text = "= " + display.text!
+    }
 }
 
