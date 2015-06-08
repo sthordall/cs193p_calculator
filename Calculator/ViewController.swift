@@ -77,6 +77,15 @@ class ViewController: UIViewController {
         userTyping = false
     }
     
+    @IBAction func backspace() {
+        if userTyping {
+            display.text = dropLast(display.text!)
+            if count(display.text!) == 0 {
+                displayValue = 0
+            }
+        }
+    }
+    
     @IBAction func operate(sender: UIButton) {
         let operation = sender.currentTitle!
         switch operation {
