@@ -18,19 +18,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x14-sY-C9C">
-                                <rect key="frame" x="16" y="92.5" width="568" height="64.5"/>
+                                <rect key="frame" x="16" y="92" width="568" height="64.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ee-u5-dc4">
-                                <rect key="frame" x="164" y="309.5" width="132" height="65"/>
+                                <rect key="frame" x="164" y="309" width="132" height="65"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <state key="normal" title="8">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pFk-GJ-mGb"/>
+                                    <action selector="appendHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gw3-nJ-4fM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogb-8X-mu7">
@@ -41,46 +42,51 @@
                                 </state>
                                 <connections>
                                     <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qh8-14-yPs"/>
+                                    <action selector="appendHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hS1-2o-bCu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcU-gE-F82">
-                                <rect key="frame" x="304" y="309.5" width="132" height="65"/>
+                                <rect key="frame" x="304" y="309" width="132" height="65"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <state key="normal" title="9">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gZ0-e7-85P"/>
+                                    <action selector="appendHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Gb-f3-hQr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaX-9d-INx">
-                                <rect key="frame" x="24" y="382.5" width="132" height="64.5"/>
+                                <rect key="frame" x="24" y="382" width="132" height="64.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <state key="normal" title="4">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K0w-Ut-nvf"/>
+                                    <action selector="appendHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="05c-0l-HbM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iUj-jN-Xh9">
-                                <rect key="frame" x="164" y="382.5" width="132" height="64.5"/>
+                                <rect key="frame" x="164" y="382" width="132" height="64.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <state key="normal" title="5">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rAv-6D-GMH"/>
+                                    <action selector="appendHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N3f-s8-JDX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nir-d5-UGa">
-                                <rect key="frame" x="304" y="382.5" width="132" height="64.5"/>
+                                <rect key="frame" x="304" y="382" width="132" height="64.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <state key="normal" title="6">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AP9-a2-Jzt"/>
+                                    <action selector="appendHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RKN-kF-DuP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gR-g8-HMf">
@@ -91,6 +97,7 @@
                                 </state>
                                 <connections>
                                     <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PG9-qQ-8ga"/>
+                                    <action selector="appendHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uiL-in-Tkx"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wUP-S0-8oW">
@@ -101,45 +108,50 @@
                                 </state>
                                 <connections>
                                     <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ta2-hm-wR9"/>
+                                    <action selector="appendHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9vJ-s3-6qp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qvx-mN-zQ5">
-                                <rect key="frame" x="24" y="527.5" width="132" height="64.5"/>
+                                <rect key="frame" x="24" y="527" width="132" height="64.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <state key="normal" title=".">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="appendHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pcL-pa-tej"/>
                                     <action selector="appendPoint:" destination="BYZ-38-t0r" eventType="touchUpInside" id="673-N4-iyh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="haH-m9-nWi">
-                                <rect key="frame" x="164" y="527.5" width="132" height="64.5"/>
+                                <rect key="frame" x="164" y="527" width="132" height="64.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <state key="normal" title="0">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="trX-fD-9rg"/>
+                                    <action selector="appendHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G28-oM-QEj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YeR-6b-bcK">
-                                <rect key="frame" x="304" y="527.5" width="132" height="64.5"/>
+                                <rect key="frame" x="304" y="527" width="132" height="64.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <state key="normal" title="⏎">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="appendHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bMA-rC-iza"/>
                                     <action selector="enter" destination="BYZ-38-t0r" eventType="touchUpInside" id="A4N-Kt-YTo"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qWl-2i-Rio">
-                                <rect key="frame" x="444" y="309.5" width="132" height="65"/>
+                                <rect key="frame" x="444" y="309" width="132" height="65"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <state key="normal" title="×">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="appendHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kzx-xF-qYz"/>
                                     <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QwK-iL-gvW"/>
                                 </connections>
                             </button>
@@ -157,6 +169,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="appendHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Q6-uc-DPV"/>
                                     <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Kn-72-JvY"/>
                                 </connections>
                             </button>
@@ -175,12 +188,13 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRQ-FY-Ryt">
-                                <rect key="frame" x="444" y="382.5" width="132" height="64.5"/>
+                                <rect key="frame" x="444" y="382" width="132" height="64.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <state key="normal" title="÷">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="appendHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WaV-dT-DWL"/>
                                     <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ohe-1b-lNa"/>
                                 </connections>
                             </button>
@@ -191,6 +205,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="appendHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dzf-E3-C4D"/>
                                     <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cYd-zs-7aW"/>
                                 </connections>
                             </button>
@@ -201,6 +216,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="appendHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XAv-sw-uxk"/>
                                     <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n1c-Z2-pFK"/>
                                 </connections>
                             </button>
@@ -212,6 +228,7 @@
                                 </state>
                                 <connections>
                                     <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bnt-iQ-bTa"/>
+                                    <action selector="appendHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rjp-Bs-TvV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yh8-IY-VkB">
@@ -221,6 +238,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="appendHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AF9-VP-aNu"/>
                                     <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="37b-cM-VQB"/>
                                 </connections>
                             </button>
@@ -231,6 +249,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="appendHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rJb-IM-0dZ"/>
                                     <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LCE-fo-1Ew"/>
                                 </connections>
                             </button>
@@ -241,22 +260,24 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="appendHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tjd-FA-III"/>
                                     <action selector="appendPi" destination="BYZ-38-t0r" eventType="touchUpInside" id="3gn-zh-1tj"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="history" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfn-7g-0zV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="headTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="xfn-7g-0zV">
                                 <rect key="frame" x="16" y="20" width="568" height="64.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eja-77-gOS">
-                                <rect key="frame" x="444" y="527.5" width="132" height="64.5"/>
+                                <rect key="frame" x="444" y="527" width="132" height="64.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <state key="normal" title="+">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="appendHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vby-kc-2HW"/>
                                     <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fIp-F9-tDj"/>
                                 </connections>
                             </button>

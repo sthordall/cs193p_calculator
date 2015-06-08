@@ -60,14 +60,15 @@ class ViewController: UIViewController {
         enter()
     }
     
+    @IBAction func appendHistory(sender: UIButton) {
+        history.text = history.text! + " "  + sender.currentTitle!
+    }
     
     @IBAction func enter() {
         userTyping = false
         operandStack.append(displayValue)
         println("operandStack = \(operandStack)")
     }
-    
-    
     
     @IBAction func operate(sender: UIButton) {
         let operation = sender.currentTitle!
