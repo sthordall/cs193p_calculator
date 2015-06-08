@@ -3,10 +3,10 @@ Required Tasks:
 
 ✔ Your calculator already works with floating point numbers (e.g. if you touch 3 ↲ 4 ÷, it will properly show 0.75), however, there is no way for the user to enter a floating point number directly. Fix this by allowing legal floating point numbers to be entered (e.g. “192.168.0.1” is not a legal floating point number!). You will have to add a new “.” button to your Calculator. Don’t worry too much about precision or significant digits in this assignment. @done(2015-06-07 15:49)
 
-☐ Add the following operations to your Calculator -
-    ☐ a. sin: calculates the sine of the top operand on the stack
-    ☐ b. cos: calculates the cosine of the top operand on the stack
-    ☐ c. π: calculates (well, conjures up) the value of π. For example, 3 π × should put three times the value of π into the display on your calculator. Ditto 3 ↲ π x and also π 3 ×.
+✔ Add the following operations to your Calculator - @done(2015-06-08 13:30)
+    ✔ a. sin: calculates the sine of the top operand on the stack @done(2015-06-08 13:30)
+    ✔ b. cos: calculates the cosine of the top operand on the stack @done(2015-06-08 13:30)
+    ✔ c. π: calculates (well, conjures up) the value of π. For example, 3 π × should put three times the value of π into the display on your calculator. Ditto 3 ↲ π x and also π 3 ×. @done(2015-06-08 13:30)
 
 ☐ Add a UILabel to your UI which shows a history of every operand and operation input by the user. Place it at an appropriate location in your UI.
 
