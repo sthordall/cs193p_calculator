@@ -17,12 +17,19 @@ class ViewController: UIViewController {
     //  Variables
     var userTyping = false
     var operandStack = Array<Double>()
-    var displayValue: Double {
+    var displayValue: Double? {
         get{
-            return NSNumberFormatter().numberFromString(display.text!.stringByReplacingOccurrencesOfString("=", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil))!.doubleValue
+            if (display.text!.rangeOfString("=") != nil) {
+                display.text = display.text!.stringByReplacingOccurrencesOfString("=", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+            }
+            return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
         }
         set{
-            display.text = "\(newValue)"
+            if newValue == nil {
+                display.text = "0"
+            } else {
+                display.text = "\(newValue!)"
+            }
             userTyping = false
         }
     }
@@ -66,13 +73,17 @@ class ViewController: UIViewController {
     
     @IBAction func enter() {
         userTyping = false
-        operandStack.append(displayValue)
+        if displayValue != nil {
+            operandStack.append(displayValue!)
+        }
         println("operandStack = \(operandStack)")
     }
     
     @IBAction func clear() {
         history.text = ""
-        displayValue = 0
+        if displayValue != nil {
+            displayValue = nil
+        }
         operandStack = Array<Double>()
         userTyping = false
     }
@@ -81,20 +92,14 @@ class ViewController: UIViewController {
         if userTyping {
             display.text = dropLast(display.text!)
             if count(display.text!) == 0 {
-                displayValue = 0
+                displayValue = nil
             }
         }
     }
     
     @IBAction func invertSign() {
-        if userTyping {
-            if display.text!.rangeOfString("-") == nil {
-                display.text = "-" + display.text!
-            } else {
-                display.text = display.text!.substringToIndex(display.text!.endIndex.successor())
-            }
-        } else {
-            displayValue = displayValue * (-1)
+        if displayValue != nil {
+            displayValue = displayValue! * (-1)
         }
     }
     
@@ -129,7 +134,7 @@ class ViewController: UIViewController {
     
     private func showResult() {
         enter()
-        display.text = "= " + display.text!
+        display.text = "= \(displayValue!)"
     }
 }
 
