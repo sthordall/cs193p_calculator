@@ -173,7 +173,7 @@
                                 </state>
                                 <connections>
                                     <action selector="appendHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Q6-uc-DPV"/>
-                                    <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Kn-72-JvY"/>
+                                    <action selector="invertSign" destination="BYZ-38-t0r" eventType="touchUpInside" id="tEt-H9-W8c"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Bv-D3-K57">

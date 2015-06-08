@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     var operandStack = Array<Double>()
     var displayValue: Double {
         get{
-            return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
+            return NSNumberFormatter().numberFromString(display.text!.stringByReplacingOccurrencesOfString("=", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil))!.doubleValue
         }
         set{
             display.text = "\(newValue)"
@@ -83,6 +83,18 @@ class ViewController: UIViewController {
             if count(display.text!) == 0 {
                 displayValue = 0
             }
+        }
+    }
+    
+    @IBAction func invertSign() {
+        if userTyping {
+            if display.text!.rangeOfString("-") == nil {
+                display.text = "-" + display.text!
+            } else {
+                display.text = display.text!.substringToIndex(display.text!.endIndex.successor())
+            }
+        } else {
+            displayValue = displayValue * (-1)
         }
     }
     
