@@ -70,6 +70,13 @@ class ViewController: UIViewController {
         println("operandStack = \(operandStack)")
     }
     
+    @IBAction func clear() {
+        history.text = ""
+        displayValue = 0
+        operandStack = Array<Double>()
+        userTyping = false
+    }
+    
     @IBAction func operate(sender: UIButton) {
         let operation = sender.currentTitle!
         switch operation {
