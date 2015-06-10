@@ -15,20 +15,24 @@ class ViewController: UIViewController {
     @IBOutlet weak var display: UILabel!
     
     //  Variables
-    var userTyping = false
-    var operandStack = Array<Double>()
-    var displayValue: Double? {
+    private var userTyping = false
+    private var operandStack = Array<Double>()
+    private var displayValue: Double? {
         get{
-            if (display.text!.rangeOfString("=") != nil) {
+            if display.text!.hasPrefix("=") {
                 display.text = display.text!.stringByReplacingOccurrencesOfString("=", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
             }
-            return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
+            let value = NSNumberFormatter().numberFromString(display.text!)!.doubleValue
+            if value == 0 {
+                return nil
+            }
+            return value
         }
         set{
-            if newValue == nil {
-                display.text = "0"
-            } else {
+            if newValue != nil {
                 display.text = "\(newValue!)"
+            } else {
+                display.text = "0"
             }
             userTyping = false
         }
@@ -47,7 +51,7 @@ class ViewController: UIViewController {
     
     @IBAction func appendPoint(sender: UIButton) {
         let point = sender.currentTitle!
-
+        
         if display.text!.rangeOfString(point) == nil {
             if userTyping {
                 display.text = display.text! + point
@@ -73,17 +77,15 @@ class ViewController: UIViewController {
     
     @IBAction func enter() {
         userTyping = false
-        if displayValue != nil {
-            operandStack.append(displayValue!)
+        if let value = displayValue {
+            operandStack.append(value)
         }
         println("operandStack = \(operandStack)")
     }
     
     @IBAction func clear() {
         history.text = ""
-        if displayValue != nil {
-            displayValue = nil
-        }
+        displayValue = nil
         operandStack = Array<Double>()
         userTyping = false
     }
@@ -98,8 +100,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func invertSign() {
-        if displayValue != nil {
-            displayValue = displayValue! * (-1)
+        if let value = displayValue {
+            displayValue = value * (-1)
         }
     }
     
@@ -107,9 +109,9 @@ class ViewController: UIViewController {
         let operation = sender.currentTitle!
         switch operation {
         case "×": performOperation {$0 * $1}
-        case "÷": performOperation {$0 / $1}
+        case "÷": performOperation {$1 / $0}
         case "+": performOperation {$0 + $1}
-        case "−": performOperation {$0 - $1}
+        case "−": performOperation {$1 - $0}
         case "√": performOperation {sqrt($0)}
         case "cos": performOperation {cos($0)}
         case "sin": performOperation {sin($0)}
@@ -133,8 +135,8 @@ class ViewController: UIViewController {
     }
     
     private func showResult() {
-        enter()
         display.text = "= \(displayValue!)"
+        enter()
     }
 }
 
