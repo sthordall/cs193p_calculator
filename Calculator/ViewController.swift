@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var display: UILabel!
     
     //  Variables
+    private var brain = CalculatorBrain()
     private var userTyping = false
     private var operandStack = Array<Double>()
     private var displayValue: Double? {
@@ -78,9 +79,10 @@ class ViewController: UIViewController {
     @IBAction func enter() {
         userTyping = false
         if let value = displayValue {
-            operandStack.append(value)
+            if let result = brain.pushOperand(value) {
+                displayValue = result
+            }
         }
-        println("operandStack = \(operandStack)")
     }
     
     @IBAction func clear() {
@@ -106,16 +108,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func operate(sender: UIButton) {
-        let operation = sender.currentTitle!
-        switch operation {
-        case "×": performOperation {$0 * $1}
-        case "÷": performOperation {$1 / $0}
-        case "+": performOperation {$0 + $1}
-        case "−": performOperation {$1 - $0}
-        case "√": performOperation {sqrt($0)}
-        case "cos": performOperation {cos($0)}
-        case "sin": performOperation {sin($0)}
-        default: break
+        if userTyping {
+            enter()
+        }
+        if let operation = sender.currentTitle {
+            if let result = brain.performOperation(operation) {
+                displayValue = result
+            }
         }
     }
     

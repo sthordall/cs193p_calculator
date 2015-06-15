@@ -32,7 +32,7 @@ class CalculatorBrain {
     private func evaluate(var ops: [Op]) -> (result: Double?, remainingOps: [Op]) {
         if !ops.isEmpty {
             var remainingOps = ops
-            let op = ops.removeLast()
+            let op = remainingOps.removeLast()
             switch op {
             case .Operand(let operand):
                 return (operand, remainingOps)
