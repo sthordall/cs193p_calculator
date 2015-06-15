@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     private var operandStack = Array<Double>()
     private var displayValue: Double? {
         get{
-            if display.text!.hasPrefix("=") {
+            if display.text!.rangeOfString("=") == nil {
                 display.text = display.text!.stringByReplacingOccurrencesOfString("=", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
             }
             let value = NSNumberFormatter().numberFromString(display.text!)!.doubleValue
