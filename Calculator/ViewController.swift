@@ -33,7 +33,7 @@ class ViewController: UIViewController {
             if newValue != nil {
                 display.text = "\(newValue!)"
             } else {
-                display.text = "0"
+                display.text = ""
             }
             userTyping = false
         }
@@ -79,9 +79,7 @@ class ViewController: UIViewController {
     @IBAction func enter() {
         userTyping = false
         if let value = displayValue {
-            if let result = brain.pushOperand(value) {
-                displayValue = result
-            }
+            displayValue = brain.pushOperand(value)
         }
     }
     
@@ -112,9 +110,7 @@ class ViewController: UIViewController {
             enter()
         }
         if let operation = sender.currentTitle {
-            if let result = brain.performOperation(operation) {
-                displayValue = result
-            }
+            displayValue = brain.performOperation(operation)
         }
     }
     
