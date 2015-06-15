@@ -118,24 +118,5 @@ class ViewController: UIViewController {
         }
     }
     
-    //  Helpers
-    private func performOperation(operation: (Double, Double) -> Double) {
-        if operandStack.count >= 2 {
-            displayValue = operation(operandStack.removeLast(), operandStack.removeLast())
-            showResult()
-        }
-    }
-    
-    private func performOperation(operation: Double -> Double) {
-        if operandStack.count >= 1 {
-            displayValue = operation(operandStack.removeLast())
-            showResult()
-        }
-    }
-    
-    private func showResult() {
-        display.text = "= \(displayValue!)"
-        enter()
-    }
 }
 
