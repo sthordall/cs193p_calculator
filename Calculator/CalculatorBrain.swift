@@ -12,6 +12,7 @@ class CalculatorBrain {
     
     private enum Op : Printable {
         case Operand(Double)
+        case VariableOperand(String)
         case UnaryOperation(String, Double -> Double)
         case BinaryOperation(String, (Double, Double) -> Double)
         
@@ -20,6 +21,8 @@ class CalculatorBrain {
                 switch self {
                 case .Operand(let operand):
                     return "\(operand)"
+                case .VariableOperand(let operand):
+                    return operand
                 case .UnaryOperation(let symbol,_):
                     return symbol
                 case .BinaryOperation(let symbol,_):
@@ -27,11 +30,12 @@ class CalculatorBrain {
                 }
             }
         }
-        
     }
     
     private var opStack = [Op]()
     private var knownOps = [String:Op]()
+    
+    var variableValues = [String:Double]()
     
     init() {
         knownOps["×"] = Op.BinaryOperation("×", *)
@@ -50,6 +54,8 @@ class CalculatorBrain {
             switch op {
             case .Operand(let operand):
                 return (operand, remainingOps)
+            case .VariableOperand(let operand):
+                return (variableValues[operand], remainingOps)
             case .UnaryOperation(_, let operation):
                 let operandEvaluation = evaluate(remainingOps)
                 if let operand = operandEvaluation.result {
@@ -76,6 +82,11 @@ class CalculatorBrain {
     
     func pushOperand(operand: Double) -> Double? {
         opStack.append(Op.Operand(operand))
+        return evaluate()
+    }
+    
+    func pushOperand(operand: String) -> Double? {
+        opStack.append(Op.VariableOperand(operand))
         return evaluate()
     }
     
