@@ -52,7 +52,6 @@ class ViewController: UIViewController {
     
     @IBAction func appendPoint(sender: UIButton) {
         let point = sender.currentTitle!
-        
         if display.text!.rangeOfString(point) == nil {
             if userTyping {
                 display.text = display.text! + point
@@ -72,8 +71,8 @@ class ViewController: UIViewController {
         enter()
     }
     
-    @IBAction func appendHistory(sender: UIButton) {
-        history.text = history.text! + " "  + sender.currentTitle!
+    @IBAction func updateHistory() {
+        history.text = brain.description
     }
     
     @IBAction func enter() {
@@ -81,6 +80,7 @@ class ViewController: UIViewController {
         if let value = displayValue {
             displayValue = brain.pushOperand(value)
         }
+        updateHistory()
     }
     
     @IBAction func clear() {
@@ -110,8 +110,14 @@ class ViewController: UIViewController {
             enter()
         }
         if let operation = sender.currentTitle {
-            displayValue = brain.performOperation(operation)
+            showResult(brain.performOperation(operation))
         }
+    }
+    
+    private func showResult(var result: Double?) {
+        displayValue = result
+        display.text = "= " + display.text!
+        updateHistory()
     }
     
 }

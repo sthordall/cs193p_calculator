@@ -37,16 +37,7 @@ class CalculatorBrain {
     
     var description: String {
         get {
-            var finalDescription: String = ""
-            var ops = opStack
-            
-            while(!ops.isEmpty) {
-                let desc = describe(ops)
-                ops = desc.remainingOps
-                finalDescription += desc.result
-            }
-            
-            return finalDescription
+            return describe(opStack).result
         }
     }
     
@@ -71,29 +62,27 @@ class CalculatorBrain {
                 return ("\(operand)", remainingOps)
             case .VariableOperand(let operand):
                 return (operand, remainingOps)
-            case .UnaryOperation(_, let operation):
+            case .UnaryOperation(let operation, _):
                 let (descResult, descRemainingOps) = describe(remainingOps)
-                if descResult != "" {
+                if !descResult.isEmpty {
                     return ("\(operation)(\(descResult))", descRemainingOps)
                 }
-            case .BinaryOperation(_, let operation):
+            case .BinaryOperation(let operation, _):
                 let (descOp1, descRemainingOps1) = describe(remainingOps)
                 if !descOp1.isEmpty {
                     let (descOp2, descRemainingOps2) = describe(descRemainingOps1)
                     if !descOp2.isEmpty {
                         switch "\(operation)" {
                         case "×":
-                            return ("\(descOp1) + \(operation) + (\(descOp2))", descRemainingOps2)
+                            return  ("\(descOp1)\(operation)(\(descOp2))", descRemainingOps2)
                         case "÷":
-                            return ("\(descOp2) + \(operation) + (\(descOp1))", descRemainingOps2)
-                        case "÷":
-                            return ("\(descOp2) + \(operation) + (\(descOp1))", descRemainingOps2)
+                            return ("(\(descOp2))\(operation)\(descOp1)", descRemainingOps2)
                         case "+":
-                            return ("\(descOp1) + \(operation) + (\(descOp2))", descRemainingOps2)
+                            return ("\(descOp1)\(operation)\(descOp2)", descRemainingOps2)
                         case "−":
-                            return ("\(descOp2) + \(operation) + (\(descOp1))", descRemainingOps2)
+                            return ("\(descOp2)\(operation)\(descOp1)", descRemainingOps2)
                         default:
-                            return ("\(descOp1) + \(operation) + (\(descOp2))", descRemainingOps2)
+                            return ("\(descOp2)\(operation)\(descOp1)", descRemainingOps2)
                         }
                     }
                 }
@@ -101,7 +90,6 @@ class CalculatorBrain {
         }
         return ("", ops)
     }
-    
     
     private func evaluate(var ops: [Op]) -> (result: Double?, remainingOps: [Op]) {
         if !ops.isEmpty {
