@@ -86,8 +86,6 @@ class CalculatorBrain {
                         }
                     }
                 }
-            default :
-                return ("?", ops)
             }
         }
         return("?", ops)
