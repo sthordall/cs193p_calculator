@@ -70,16 +70,13 @@ class CalculatorBrain {
             case .BinaryOperation(let operation, _):
                 let (descOp1, descRemainingOps1) = describe(remainingOps)
                 if !descOp1.isEmpty {
-                    let (descOp2, descRemainingOps2) = describe(descRemainingOps1)
+                    var (descOp2, descRemainingOps2) = describe(descRemainingOps1)
                     if !descOp2.isEmpty {
-                        switch "\(operation)" {
-                        case "×":
-                            return  ("\(descOp1)\(operation)(\(descOp2))", descRemainingOps2)
-                        case "÷":
-                            return ("(\(descOp2))\(operation)\(descOp1)", descRemainingOps2)
-                        case "+":
-                            return ("\(descOp1)\(operation)\(descOp2)", descRemainingOps2)
-                        case "−":
+                        descOp2 = applyParanthesisIfNeeded(descOp2, operation: operation)
+                        switch operation {
+                        case "×", "+":
+                            return  ("\(descOp1)\(operation)\(descOp2)", descRemainingOps2)
+                        case "÷", "-":
                             return ("\(descOp2)\(operation)\(descOp1)", descRemainingOps2)
                         default:
                             return ("\(descOp2)\(operation)\(descOp1)", descRemainingOps2)
@@ -89,6 +86,20 @@ class CalculatorBrain {
             }
         }
         return("?", ops)
+    }
+    
+    private func applyParanthesisIfNeeded(operand: String, operation: String) -> String {
+        if(operation == "×" || operation == "÷") {
+            let containsMultipleOperands = operand.rangeOfString("+") != nil || operand.rangeOfString("-") != nil
+            let startsWithParanthesis = operand.hasPrefix("(")
+            let startsWithFunction = operand.hasPrefix("cos") || operand.hasPrefix("sin") || operand.hasPrefix("√")
+            
+            if(containsMultipleOperands && !startsWithFunction && !startsWithParanthesis) {
+                return "(\(operand))"
+            }
+        }
+        
+        return operand
     }
     
     private func evaluate(var ops: [Op]) -> (result: Double?, remainingOps: [Op]) {
