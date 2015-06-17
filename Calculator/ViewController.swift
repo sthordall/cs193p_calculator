@@ -64,15 +64,6 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func appendPi() {
-        let piValue = M_PI
-        if userTyping {
-            enter()
-        }
-        display.text = "\(piValue)"
-        enter()
-    }
-    
     @IBAction func updateHistory() {
         history.text = brain.description
     }

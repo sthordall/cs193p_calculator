@@ -13,6 +13,7 @@ class CalculatorBrain {
     private enum Op : Printable {
         case Operand(Double)
         case VariableOperand(String)
+        case ConstantOperand(String, Double)
         case UnaryOperation(String, Double -> Double)
         case BinaryOperation(String, (Double, Double) -> Double)
         
@@ -22,6 +23,8 @@ class CalculatorBrain {
                 case .Operand(let operand):
                     return "\(operand)"
                 case .VariableOperand(let operand):
+                    return operand
+                case .ConstantOperand(let operand,_):
                     return operand
                 case .UnaryOperation(let symbol,_):
                     return symbol
@@ -51,6 +54,7 @@ class CalculatorBrain {
         knownOps["√"] = Op.UnaryOperation("√", sqrt)
         knownOps["cos"] = Op.UnaryOperation("cos", cos)
         knownOps["sin"] = Op.UnaryOperation("sin", sin)
+        knownOps["π"] = Op.ConstantOperand("π", M_PI)
     }
     
     private func describe(var ops: [Op]) -> (result: String, remainingOps: [Op]) {
@@ -61,6 +65,8 @@ class CalculatorBrain {
             case .Operand(let operand):
                 return ("\(operand)", remainingOps)
             case .VariableOperand(let operand):
+                return (operand, remainingOps)
+            case .ConstantOperand(let operand, _):
                 return (operand, remainingOps)
             case .UnaryOperation(let operation, _):
                 let (descResult, descRemainingOps) = describe(remainingOps)
@@ -90,7 +96,7 @@ class CalculatorBrain {
     
     private func applyParanthesisIfNeeded(operand: String, operation: String) -> String {
         if(operation == "×" || operation == "÷") {
-            let containsMultipleOperands = operand.rangeOfString("+") != nil || operand.rangeOfString("-") != nil
+            let containsMultipleOperands = operand.rangeOfString("+") != nil || operand.rangeOfString("−") != nil
             let startsWithParanthesis = operand.hasPrefix("(")
             let startsWithFunction = operand.hasPrefix("cos") || operand.hasPrefix("sin") || operand.hasPrefix("√")
             
@@ -111,6 +117,8 @@ class CalculatorBrain {
                 return (operand, remainingOps)
             case .VariableOperand(let operand):
                 return (variableValues[operand], remainingOps)
+            case .ConstantOperand(_, let operandValue):
+                return (operandValue, remainingOps)
             case .UnaryOperation(_, let operation):
                 let operandEvaluation = evaluate(remainingOps)
                 if let operand = operandEvaluation.result {
