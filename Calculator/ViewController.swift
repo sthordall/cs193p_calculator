@@ -23,17 +23,19 @@ class ViewController: UIViewController {
             if display.text!.rangeOfString("=") == nil {
                 display.text = display.text!.stringByReplacingOccurrencesOfString("=", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
             }
-            let value = NSNumberFormatter().numberFromString(display.text!)!.doubleValue
-            if value == 0 {
-                return nil
+            if let value = NSNumberFormatter().numberFromString(display.text!) {
+                let doubleValue = value.doubleValue
+                if doubleValue != 0 {
+                    return doubleValue
+                }
             }
-            return value
+            return nil
         }
         set{
             if newValue != nil {
                 display.text = "\(newValue!)"
             } else {
-                display.text = ""
+                display.text = "ERROR"
             }
             userTyping = false
         }

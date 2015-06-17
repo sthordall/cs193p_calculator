@@ -86,9 +86,11 @@ class CalculatorBrain {
                         }
                     }
                 }
+            default :
+                return ("?", ops)
             }
         }
-        return ("", ops)
+        return("?", ops)
     }
     
     private func evaluate(var ops: [Op]) -> (result: Double?, remainingOps: [Op]) {
