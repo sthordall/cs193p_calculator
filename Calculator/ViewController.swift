@@ -64,6 +64,12 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func saveVariable() {
+        brain.variableValues["M"] = displayValue
+        userTyping = false
+        showResult(brain.evaluate())
+    }
+    
     @IBAction func updateHistory() {
         history.text = brain.description
     }
@@ -73,6 +79,12 @@ class ViewController: UIViewController {
         if let value = displayValue {
             displayValue = brain.pushOperand(value)
         }
+        updateHistory()
+    }
+    
+    @IBAction func addVariable() {
+        brain.pushOperand("M")
+        userTyping = false
         updateHistory()
     }
     

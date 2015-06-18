@@ -169,6 +169,9 @@
                                 <state key="normal" title="→M">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveVariable" destination="BYZ-38-t0r" eventType="touchUpInside" id="JIR-06-fZx"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NBX-Lj-Zzb">
                                 <rect key="frame" x="360" y="165" width="104" height="64"/>
@@ -176,6 +179,9 @@
                                 <state key="normal" title="M">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="addVariable" destination="BYZ-38-t0r" eventType="touchUpInside" id="iiD-V0-mNr"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vei-5J-BXo">
                                 <rect key="frame" x="360" y="237" width="104" height="64.5"/>
