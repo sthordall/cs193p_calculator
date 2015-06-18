@@ -40,7 +40,21 @@ class CalculatorBrain {
     
     var description: String {
         get {
-            return describe(opStack).result
+            var ops = opStack
+            var finalDescription = String()
+            while(!ops.isEmpty) {
+                let (result, remainingOps) = describe(ops)
+                if(result != "" && finalDescription != "") {
+                    finalDescription = result + "," + finalDescription
+                } else {
+                    finalDescription = result + finalDescription
+                }
+                
+                ops = remainingOps
+                
+            }
+
+            return finalDescription
         }
     }
     
@@ -74,10 +88,14 @@ class CalculatorBrain {
                     return ("\(operation)(\(descResult))", descRemainingOps)
                 }
             case .BinaryOperation(let operation, _):
-                let (descOp1, descRemainingOps1) = describe(remainingOps)
-                if !descOp1.isEmpty {
+                var (descOp1, descRemainingOps1) = describe(remainingOps)
+                if descOp1.isEmpty {
+                   descOp1 = "?"
+                } else {
                     var (descOp2, descRemainingOps2) = describe(descRemainingOps1)
-                    if !descOp2.isEmpty {
+                    if descOp2.isEmpty {
+                        descOp2 = "?"
+                    } else {
                         descOp2 = applyParanthesisIfNeeded(descOp2, operation: operation)
                         switch operation {
                         case "×", "+":
@@ -91,7 +109,7 @@ class CalculatorBrain {
                 }
             }
         }
-        return("?", ops)
+        return("", ops)
     }
     
     private func applyParanthesisIfNeeded(operand: String, operation: String) -> String {
