@@ -89,10 +89,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func clear() {
-        history.text = ""
-        displayValue = nil
-        operandStack = Array<Double>()
-        userTyping = false
+        brain.clearStack()
+        brain.variableValues = [String:Double]()
+        displayValue = 0
+        updateHistory()
     }
     
     @IBAction func backspace() {
