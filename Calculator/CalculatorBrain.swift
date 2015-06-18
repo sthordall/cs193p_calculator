@@ -89,26 +89,25 @@ class CalculatorBrain {
                 }
             case .BinaryOperation(let operation, _):
                 var (descOp1, descRemainingOps1) = describe(remainingOps)
+                var (descOp2, descRemainingOps2) = describe(descRemainingOps1)
                 if descOp1.isEmpty {
                    descOp1 = "?"
-                } else {
-                    var (descOp2, descRemainingOps2) = describe(descRemainingOps1)
-                    if descOp2.isEmpty {
-                        descOp2 = "?"
-                    } else {
-                        descOp2 = applyParanthesisIfNeeded(descOp2, operation: operation)
-                        switch operation {
-                        case "×", "+":
-                            return  ("\(descOp1)\(operation)\(descOp2)", descRemainingOps2)
-                        case "÷", "-":
-                            return ("\(descOp2)\(operation)\(descOp1)", descRemainingOps2)
-                        default:
-                            return ("\(descOp2)\(operation)\(descOp1)", descRemainingOps2)
-                        }
-                    }
+                }
+                if descOp2.isEmpty {
+                    descOp2 = "?"
+                }
+                descOp2 = applyParanthesisIfNeeded(descOp2, operation: operation)
+                switch operation {
+                case "×", "+":
+                    return  ("\(descOp1)\(operation)\(descOp2)", descRemainingOps2)
+                case "÷", "-":
+                    return ("\(descOp2)\(operation)\(descOp1)", descRemainingOps2)
+                default:
+                    return ("\(descOp2)\(operation)\(descOp1)", descRemainingOps2)
                 }
             }
         }
+        
         return("", ops)
     }
     
