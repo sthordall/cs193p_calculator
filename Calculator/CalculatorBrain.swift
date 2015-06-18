@@ -49,9 +49,7 @@ class CalculatorBrain {
                 } else {
                     finalDescription = result + finalDescription
                 }
-                
                 ops = remainingOps
-                
             }
 
             return finalDescription
