@@ -15,7 +15,7 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var display: UILabel!
     
     //  Variables
-    private var brain = CalculatorBrain()
+    var brain = CalculatorBrain()
     private var userTyping = false
     private var displayValue: Double? {
         get{
