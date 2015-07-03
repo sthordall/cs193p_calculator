@@ -17,10 +17,9 @@ class ViewController: UIViewController {
     //  Variables
     private var brain = CalculatorBrain()
     private var userTyping = false
-    private var operandStack = Array<Double>()
     private var displayValue: Double? {
         get{
-            if display.text!.rangeOfString("=") == nil {
+            if display.text!.rangeOfString("=") != nil {
                 display.text = display.text!.stringByReplacingOccurrencesOfString("=", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
             }
             if let value = NSNumberFormatter().numberFromString(display.text!) {
