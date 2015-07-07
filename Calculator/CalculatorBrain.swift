@@ -56,6 +56,13 @@ class CalculatorBrain {
         }
     }
     
+    // Describes only the latest whole statement, given to the brain
+    var latestDescription : String {
+        get {
+            return describe(opStack).result
+        }
+    }
+    
     var variableValues = [String:Double]()
     
     init() {

@@ -40,6 +40,17 @@ class CalculatorViewController: UIViewController {
         }
     }
     
+    // Segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var destination = segue.destinationViewController as? UIViewController
+        if let navCon = destination as? UINavigationController {
+            destination = navCon.visibleViewController
+        }
+        if let gvc = destination as? GraphViewController {
+            gvc.brain = brain
+        }
+    }
+    
     //  Actions
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!

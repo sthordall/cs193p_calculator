@@ -9,6 +9,17 @@
 import UIKit
 
 class GraphViewController: UIViewController {
+    var brain : CalculatorBrain? = nil {
+        didSet {
+            if brain != nil {
+                title = brain!.latestDescription
+            } else {
+                title = ""
+            }
+            
+        }
+    }
     
-   
+    
+    
 }

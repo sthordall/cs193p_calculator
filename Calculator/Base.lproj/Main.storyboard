@@ -190,7 +190,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="wS0-a7-ukf" kind="showDetail" id="M15-OS-tvc"/>
+                                    <segue destination="wS0-a7-ukf" kind="showDetail" identifier="Show Graph" id="M15-OS-tvc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRQ-FY-Ryt">
