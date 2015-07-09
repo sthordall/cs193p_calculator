@@ -11,12 +11,15 @@ import UIKit
 class GraphViewController: UIViewController {
     var brain : CalculatorBrain? = nil {
         didSet {
-            if brain != nil {
-                title = brain!.latestDescription
-            } else {
-                title = ""
-            }
-            
+            updateUI()
+        }
+    }
+    
+    private func updateUI() {
+        if brain != nil {
+            title = brain!.latestDescription
+        } else {
+            title = ""
         }
     }
     

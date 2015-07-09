@@ -606,13 +606,25 @@
             <objects>
                 <viewController id="VGR-Jf-Oah" customClass="GraphViewController" customModule="Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ygD-0i-HdW"/>
-                        <viewControllerLayoutGuide type="bottom" id="oGl-4s-67T"/>
+                        <viewControllerLayoutGuide type="top" id="XOM-eS-dkG"/>
+                        <viewControllerLayoutGuide type="bottom" id="RGm-UG-RBh"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Hpg-0t-0Fg">
+                    <view key="view" contentMode="scaleToFill" id="9R6-TH-z5k">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="1" blue="0.050397792599999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yAB-t5-yjB" customClass="GraphingView" customModule="Calculator" customModuleProvider="target">
+                                <rect key="frame" x="16" y="72" width="568" height="520"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="yAB-t5-yjB" secondAttribute="trailing" id="Hok-EC-nHB"/>
+                            <constraint firstItem="yAB-t5-yjB" firstAttribute="top" secondItem="XOM-eS-dkG" secondAttribute="bottom" constant="8" symbolic="YES" id="Uvd-3z-kT5"/>
+                            <constraint firstItem="yAB-t5-yjB" firstAttribute="leading" secondItem="9R6-TH-z5k" secondAttribute="leadingMargin" id="m34-c7-Vfz"/>
+                            <constraint firstItem="RGm-UG-RBh" firstAttribute="top" secondItem="yAB-t5-yjB" secondAttribute="bottom" constant="8" symbolic="YES" id="xX9-5c-UVl"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ta3-FI-gyZ"/>
                 </viewController>
