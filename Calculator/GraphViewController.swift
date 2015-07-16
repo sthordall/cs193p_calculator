@@ -8,7 +8,15 @@
 
 import UIKit
 
-class GraphViewController: UIViewController {
+class GraphViewController: UIViewController, GraphDataSource {
+    
+    @IBOutlet weak var graphView: GraphView! {
+        didSet {
+            graphView.dataSource = self
+            graphView.addGestureRecognizer(UIPinchGestureRecognizer(target: graphView, action: "scale:"))
+        }
+    }
+
     var brain : CalculatorBrain? = nil {
         didSet {
             updateUI()
@@ -23,6 +31,9 @@ class GraphViewController: UIViewController {
         }
     }
     
-    
+    func yForX(xValue: Double) -> Double? {
+        //TODO: Figure this jazz out
+        return nil
+    }
     
 }

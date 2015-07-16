@@ -10,7 +10,7 @@ import Foundation
 
 class CalculatorBrain {
     
-    private enum Op : Printable {
+    private enum Op : CustomStringConvertible {
         case Operand(Double)
         case VariableOperand(String)
         case ConstantOperand(String, Double)
@@ -160,8 +160,8 @@ class CalculatorBrain {
     }
     
     func evaluate() -> Double? {
-        let (result, remainder) = evaluate(opStack)
-        println("\(opStack)")
+        let (result, _) = evaluate(opStack)
+        print("\(opStack)")
         return result
     }
     

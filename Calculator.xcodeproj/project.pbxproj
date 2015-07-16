@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2F6ACE641B46D5910094081F /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6ACE631B46D5910094081F /* GraphViewController.swift */; };
 		2F6ACE661B4B99E40094081F /* AxesDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6ACE651B4B99E40094081F /* AxesDrawer.swift */; };
-		2F6ACE681B4D5E980094081F /* GraphingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6ACE671B4D5E980094081F /* GraphingView.swift */; };
+		2F6ACE681B4D5E980094081F /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6ACE671B4D5E980094081F /* GraphView.swift */; };
 		2F7708701B1F236700D4C763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F77086F1B1F236700D4C763 /* AppDelegate.swift */; };
 		2F7708721B1F236700D4C763 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7708711B1F236700D4C763 /* CalculatorViewController.swift */; };
 		2F7708751B1F236700D4C763 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F7708731B1F236700D4C763 /* Main.storyboard */; };
@@ -32,7 +32,7 @@
 /* Begin PBXFileReference section */
 		2F6ACE631B46D5910094081F /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		2F6ACE651B4B99E40094081F /* AxesDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AxesDrawer.swift; path = ../../../../Downloads/AxesDrawer.swift; sourceTree = "<group>"; };
-		2F6ACE671B4D5E980094081F /* GraphingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphingView.swift; sourceTree = "<group>"; };
+		2F6ACE671B4D5E980094081F /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		2F77086A1B1F236700D4C763 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F77086E1B1F236700D4C763 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F77086F1B1F236700D4C763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 				2FA20CCC1B2EEC0400353A16 /* CalculatorBrain.swift */,
 				2F7708711B1F236700D4C763 /* CalculatorViewController.swift */,
 				2F6ACE631B46D5910094081F /* GraphViewController.swift */,
-				2F6ACE671B4D5E980094081F /* GraphingView.swift */,
+				2F6ACE671B4D5E980094081F /* GraphView.swift */,
 				2F7708731B1F236700D4C763 /* Main.storyboard */,
 				2F6ACE651B4B99E40094081F /* AxesDrawer.swift */,
 				2F77086D1B1F236700D4C763 /* Supporting Files */,
@@ -168,7 +168,9 @@
 		2F7708621B1F236600D4C763 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Stephan Thordal";
 				TargetAttributes = {
 					2F7708691B1F236600D4C763 = {
@@ -224,7 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F6ACE681B4D5E980094081F /* GraphingView.swift in Sources */,
+				2F6ACE681B4D5E980094081F /* GraphView.swift in Sources */,
 				2F7708721B1F236700D4C763 /* CalculatorViewController.swift in Sources */,
 				2F6ACE641B46D5910094081F /* GraphViewController.swift in Sources */,
 				2F6ACE661B4B99E40094081F /* AxesDrawer.swift in Sources */,
@@ -292,6 +294,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -307,7 +310,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -346,7 +349,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -360,6 +363,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Calculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.sthordall.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -370,6 +374,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Calculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.sthordall.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -388,6 +393,7 @@
 				);
 				INFOPLIST_FILE = CalculatorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.sthordall.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calculator.app/Calculator";
 			};
@@ -403,6 +409,7 @@
 				);
 				INFOPLIST_FILE = CalculatorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.sthordall.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calculator.app/Calculator";
 			};

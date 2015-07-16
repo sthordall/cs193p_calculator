@@ -1,5 +1,5 @@
 //
-//  GraphingView.swift
+//  GraphView.swift
 //  Calculator
 //
 //  Created by Stephan Thordal Larsen on 08/07/15.
@@ -12,20 +12,19 @@ protocol GraphDataSource {
     func yForX(xValue: Double) -> Double?
 }
 
-class GraphingView: UIView {
+class GraphView: UIView {
     
-    private var dataSource: GraphDataSource?
+    var dataSource: GraphDataSource?
     private let axesDrawer = AxesDrawer()
     private var pointsPerUnit: CGFloat = 10 { didSet{ setNeedsDisplay() } }
     private var centerPoint: CGPoint = CGPoint(x: 0, y: 0) { didSet{ setNeedsDisplay() } }
+    private var scale: CGFloat = 1 { didSet { setNeedsDisplay() } }
     
     override func drawRect(rect: CGRect) {
-        // Drawing code
         centerPoint = CGPoint(x: (rect.midX), y: (rect.midY ))
         axesDrawer.color = UIColor.blackColor()
         axesDrawer.contentScaleFactor = contentScaleFactor
-        axesDrawer.drawAxesInRect(rect, origin: centerPoint, pointsPerUnit: pointsPerUnit)
-        
+        axesDrawer.drawAxesInRect(rect, origin: centerPoint, pointsPerUnit: scale)
     }
     
     private func drawGraph(var xValues: [Double], rect: CGRect) {
@@ -39,9 +38,19 @@ class GraphingView: UIView {
         drawGraph(remainingXValues, rect: rect)
     }
     
-    private func drawDataPoint(#xValue: Double, yValue: Double, origo: CGPoint, rect: CGRect) {
+    private func drawDataPoint(xValue xValue: Double, yValue: Double, origo: CGPoint, rect: CGRect) {
         //TODO: Draw point in graph
+        print(contentScaleFactor)
+        print(axesDrawer.minimumPointsPerHashmark)
         
+    }
+    
+    func scale(gesture: UIPinchGestureRecognizer) {
+        if gesture.state == .Changed {
+            scale *= gesture.scale
+            gesture.scale = 1
+            
+        }
     }
     
 }
