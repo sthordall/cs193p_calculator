@@ -14,6 +14,7 @@ class GraphViewController: UIViewController, GraphDataSource {
         didSet {
             graphView.dataSource = self
             graphView.addGestureRecognizer(UIPinchGestureRecognizer(target: graphView, action: "scale:"))
+            graphView.addGestureRecognizer(UIPanGestureRecognizer(target: graphView, action: "pan:"))
         }
     }
 
@@ -32,8 +33,11 @@ class GraphViewController: UIViewController, GraphDataSource {
     }
     
     func yForX(xValue: Double) -> Double? {
-        //TODO: Figure this jazz out
-        return nil
+        let memento = brain?.variableValues["M"]
+        brain?.variableValues["M"] = xValue
+        let yValue = brain?.evaluate()
+        brain?.variableValues["M"] = memento
+        return yValue
     }
     
 }
