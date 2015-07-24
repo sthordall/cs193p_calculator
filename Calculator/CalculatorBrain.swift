@@ -161,7 +161,6 @@ class CalculatorBrain {
     
     func evaluate() -> Double? {
         let (result, _) = evaluate(opStack)
-        print("\(opStack)")
         return result
     }
     

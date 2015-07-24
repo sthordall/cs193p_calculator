@@ -34,7 +34,7 @@ class CalculatorViewController: UIViewController {
             if newValue != nil {
                 display.text = "\(newValue!)"
             } else {
-                display.text = "ERROR"
+                display.text = "NaN"
             }
             userTyping = false
         }

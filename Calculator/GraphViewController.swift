@@ -35,12 +35,13 @@ class GraphViewController: UIViewController, GraphDataSource {
         }
     }
     
-    func yForX(xValue: Double) -> Double? {
+    func yForX(xValue: CGFloat) -> CGFloat? {
         let memento = brain?.variableValues["M"]
-        brain?.variableValues["M"] = xValue
+        brain?.variableValues["M"] = Double(xValue)
         let yValue = brain?.evaluate()
         brain?.variableValues["M"] = memento
-        return yValue
+        
+        return (yValue != nil) ? CGFloat(yValue!) : nil
     }
     
 }

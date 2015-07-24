@@ -9,7 +9,7 @@
 import UIKit
 
 protocol GraphDataSource {
-    func yForX(xValue: Double) -> Double?
+    func yForX(xValue: CGFloat) -> CGFloat?
 }
 
 @IBDesignable
@@ -30,34 +30,61 @@ class GraphView: UIView {
             origin = CGPoint(x: (rect.midX), y: (rect.midY ))
         }
         
+        lastDataPoint = nil
+        
         axesDrawer.color = axesColor
         axesDrawer.contentScaleFactor = contentScaleFactor
         axesDrawer.drawAxesInRect(rect, origin: origin!, pointsPerUnit: scale)
-        let xVals = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]
+        let xVals = calculateXVals(origin!, rectWidth: rect.width)
+        print(xVals.count)
         drawGraph(xVals, rect: rect)
     }
     
-    private func drawGraph(xValues: [Double], rect: CGRect) {
-        //TODO: This Should be a recursive drawing function
+    private func calculateXVals(origin: CGPoint, rectWidth: CGFloat) -> [CGFloat] {
+        var xVals = [CGFloat]()
+        for(var i : CGFloat = 0; i < rectWidth; i++) {
+            //var newXVal = i*scaling //*someotherconstanct <------AA, more datapoints!
+            let newXVal = (i  - origin.x) * 1/scale
+            xVals.append(newXVal)
+        }
+        return xVals
+    }
+    
+    private func drawGraph(xValues: [CGFloat], rect: CGRect) {
         var remainingXValues = xValues
         if remainingXValues.count <= 0 { return }
         let xVal = remainingXValues.removeLast()
-        if let yVal = dataSource?.yForX(xVal) {
-            drawDataPoint(xValue: xVal, yValue: yVal, origin: origin!, rect: rect)
+        if let yVal = dataSource?.yForX(xVal)  {
+            let scaledYVal = yVal * scale
+            let scaledXVal = xVal * scale
+            drawDataPoint(xValue: scaledXVal, yValue: scaledYVal, origin: origin!, rect: rect)
         }
         drawGraph(remainingXValues, rect: rect)
     }
     
-    private func drawDataPoint(xValue xValue: Double, yValue: Double, origin: CGPoint, rect: CGRect) {
+    var lastDataPoint: CGPoint? = nil
+    
+    private func drawDataPoint(xValue xValue: CGFloat, yValue: CGFloat, origin: CGPoint, rect: CGRect) {
         //TODO: Draw point in graph
-        print("X and Y Coordinates: \(xValue) , \(yValue)")
+        //Make up for origin location here!
+        var dataPoint = origin
+        dataPoint.x += xValue
+        dataPoint.y += yValue
+        
+        if lastDataPoint != nil {
+            let path = UIBezierPath()
+            path.moveToPoint(lastDataPoint!)
+            path.addLineToPoint(dataPoint)
+            path.stroke()
+        }
+        
+        lastDataPoint = dataPoint
     }
     
     func scale(gesture: UIPinchGestureRecognizer) {
         if gesture.state == .Changed {
             scale *= gesture.scale
             gesture.scale = 1
-            
         }
     }
     
