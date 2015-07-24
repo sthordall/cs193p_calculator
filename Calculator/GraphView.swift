@@ -69,7 +69,7 @@ class GraphView: UIView {
         //Make up for origin location here!
         var dataPoint = origin
         dataPoint.x += xValue
-        dataPoint.y += yValue
+        dataPoint.y -= yValue
         
         if lastDataPoint != nil {
             let path = UIBezierPath()
