@@ -10,7 +10,7 @@ import Foundation
 
 class CalculatorBrain {
     
-    private enum Op : CustomStringConvertible {
+    private enum Op : Printable {
         case Operand(Double)
         case VariableOperand(String)
         case ConstantOperand(String, Double)

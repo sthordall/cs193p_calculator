@@ -64,7 +64,7 @@ class GraphView: UIView {
     
     var lastDataPoint: CGPoint? = nil
     
-    private func drawDataPoint(xValue xValue: CGFloat, yValue: CGFloat, origin: CGPoint, rect: CGRect) {
+    private func drawDataPoint(#xValue: CGFloat, yValue: CGFloat, origin: CGPoint, rect: CGRect) {
         //TODO: Draw point in graph
         //Make up for origin location here!
         var dataPoint = origin

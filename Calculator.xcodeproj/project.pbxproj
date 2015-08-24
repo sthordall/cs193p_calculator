@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F10DECA1B8B8FA9003C8BAA /* AxesDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F10DEC91B8B8FA9003C8BAA /* AxesDrawer.swift */; };
 		2F6ACE641B46D5910094081F /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6ACE631B46D5910094081F /* GraphViewController.swift */; };
-		2F6ACE661B4B99E40094081F /* AxesDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6ACE651B4B99E40094081F /* AxesDrawer.swift */; };
 		2F6ACE681B4D5E980094081F /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6ACE671B4D5E980094081F /* GraphView.swift */; };
 		2F7708701B1F236700D4C763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F77086F1B1F236700D4C763 /* AppDelegate.swift */; };
 		2F7708721B1F236700D4C763 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7708711B1F236700D4C763 /* CalculatorViewController.swift */; };
@@ -30,8 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F10DEC91B8B8FA9003C8BAA /* AxesDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AxesDrawer.swift; sourceTree = "<group>"; };
 		2F6ACE631B46D5910094081F /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
-		2F6ACE651B4B99E40094081F /* AxesDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AxesDrawer.swift; path = ../../../../Downloads/AxesDrawer.swift; sourceTree = "<group>"; };
 		2F6ACE671B4D5E980094081F /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		2F77086A1B1F236700D4C763 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F77086E1B1F236700D4C763 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -89,8 +89,8 @@
 				2F7708711B1F236700D4C763 /* CalculatorViewController.swift */,
 				2F6ACE631B46D5910094081F /* GraphViewController.swift */,
 				2F6ACE671B4D5E980094081F /* GraphView.swift */,
+				2F10DEC91B8B8FA9003C8BAA /* AxesDrawer.swift */,
 				2F7708731B1F236700D4C763 /* Main.storyboard */,
-				2F6ACE651B4B99E40094081F /* AxesDrawer.swift */,
 				2F77086D1B1F236700D4C763 /* Supporting Files */,
 			);
 			path = Calculator;
@@ -230,9 +230,9 @@
 				2F6ACE681B4D5E980094081F /* GraphView.swift in Sources */,
 				2F7708721B1F236700D4C763 /* CalculatorViewController.swift in Sources */,
 				2F6ACE641B46D5910094081F /* GraphViewController.swift in Sources */,
-				2F6ACE661B4B99E40094081F /* AxesDrawer.swift in Sources */,
 				2FA20CCD1B2EEC0400353A16 /* CalculatorBrain.swift in Sources */,
 				2F7708701B1F236700D4C763 /* AppDelegate.swift in Sources */,
+				2F10DECA1B8B8FA9003C8BAA /* AxesDrawer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,10 +365,12 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Calculator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.sthordall.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -379,10 +381,12 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Calculator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.sthordall.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -399,6 +403,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = CalculatorTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.sthordall.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -415,6 +420,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = CalculatorTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.sthordall.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

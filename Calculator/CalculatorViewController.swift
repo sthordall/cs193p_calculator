@@ -42,7 +42,7 @@ class CalculatorViewController: UIViewController {
     
     // Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var destination = segue.destinationViewController as UIViewController
+        var destination = segue.destinationViewController as? UIViewController
         if let navCon = destination as? UINavigationController {
             destination = navCon.visibleViewController!
         }
@@ -107,8 +107,8 @@ class CalculatorViewController: UIViewController {
     
     @IBAction func backspace() {
         if userTyping {
-            display.text = String(dropLast((display.text!).characters))
-            if (display.text!).characters.count == 0 {
+            display.text = dropLast(display.text!)
+            if count(display.text!) == 0 {
                 displayValue = nil
             }
         }
